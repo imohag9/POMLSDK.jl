@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Hierarchy Management · POMLSDK.jl</title><meta name="title" content="Hierarchy Management · POMLSDK.jl"/><meta property="og:title" content="Hierarchy Management · POMLSDK.jl"/><meta property="twitter:title" content="Hierarchy Management · POMLSDK.jl"/><meta name="description" content="Documentation for POMLSDK.jl."/><meta property="og:description" content="Documentation for POMLSDK.jl."/><meta property="twitter:description" content="Documentation for POMLSDK.jl."/><meta property="og:url" content="https://imohag9.github.io/POMLSDK.jl/usage/hierarchy_management/"/><meta property="twitter:url" content="https://imohag9.github.io/POMLSDK.jl/usage/hierarchy_management/"/><link rel="canonical" href="https://imohag9.github.io/POMLSDK.jl/usage/hierarchy_management/"/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../">POMLSDK.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><a class="tocitem" href="../../getting_started/">Getting Started</a></li><li><span class="tocitem">Usage Guide</span><ul><li><a class="tocitem" href="../creating_prompts/">Creating Prompts</a></li><li class="is-active"><a class="tocitem" href>Hierarchy Management</a><ul class="internal"><li><a class="tocitem" href="#Understanding-the-Stack-Based-Approach"><span>Understanding the Stack-Based Approach</span></a></li><li><a class="tocitem" href="#The-Stack-Operations"><span>The Stack Operations</span></a></li><li><a class="tocitem" href="#Common-Hierarchy-Patterns"><span>Common Hierarchy Patterns</span></a></li><li><a class="tocitem" href="#Error-Prevention"><span>Error Prevention</span></a></li><li><a class="tocitem" href="#Advanced-Patterns"><span>Advanced Patterns</span></a></li><li><a class="tocitem" href="#Debugging-Hierarchy-Issues"><span>Debugging Hierarchy Issues</span></a></li><li><a class="tocitem" href="#Best-Practices"><span>Best Practices</span></a></li></ul></li><li><a class="tocitem" href="../content_types/">Content Types</a></li><li><a class="tocitem" href="../tool_integration/">Hierarchy Management</a></li></ul></li><li><a class="tocitem" href="../../api/">API Reference</a></li><li><span class="tocitem">Examples</span><ul><li><a class="tocitem" href="../../examples/basic_prompt/">Basic Prompt Example</a></li><li><a class="tocitem" href="../../examples/table_creation/">Table Creation Example</a></li><li><a class="tocitem" href="../../examples/tool_usage/">Tool Usage Example</a></li><li><a class="tocitem" href="../../examples/metadata/">Metadata Example</a></li></ul></li><li><a class="tocitem" href="../../poml_standard/">POML Standard</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Usage Guide</a></li><li class="is-active"><a href>Hierarchy Management</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Hierarchy Management</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/imohag9/POMLSDK.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/imohag9/POMLSDK.jl/blob/main/docs/src/usage/hierarchy_management.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Hierarchy-Management"><a class="docs-heading-anchor" href="#Hierarchy-Management">Hierarchy Management</a><a id="Hierarchy-Management-1"></a><a class="docs-heading-anchor-permalink" href="#Hierarchy-Management" title="Permalink"></a></h1><p>This guide explains how to manage the hierarchical structure of prompts in POMLSDK.jl.</p><h2 id="Understanding-the-Stack-Based-Approach"><a class="docs-heading-anchor" href="#Understanding-the-Stack-Based-Approach">Understanding the Stack-Based Approach</a><a id="Understanding-the-Stack-Based-Approach-1"></a><a class="docs-heading-anchor-permalink" href="#Understanding-the-Stack-Based-Approach" title="Permalink"></a></h2><p>POMLSDK uses a stack to manage the current position within the prompt hierarchy. This approach is essential for creating nested structures that follow the POML standard.</p><p>The key components of hierarchy management are:</p><ol><li><strong>Current Parent</strong>: The node where new elements will be added</li><li><strong>Stack</strong>: A data structure that keeps track of the current parent and its ancestors</li><li><strong>Push</strong>: Moving deeper into the hierarchy</li><li><strong>Pop</strong>: Moving back up the hierarchy</li></ol><h2 id="The-Stack-Operations"><a class="docs-heading-anchor" href="#The-Stack-Operations">The Stack Operations</a><a id="The-Stack-Operations-1"></a><a class="docs-heading-anchor-permalink" href="#The-Stack-Operations" title="Permalink"></a></h2><h3 id="add_node!(p,-node)"><a class="docs-heading-anchor" href="#add_node!(p,-node)"><code>add_node!(p, node)</code></a><a id="add_node!(p,-node)-1"></a><a class="docs-heading-anchor-permalink" href="#add_node!(p,-node)" title="Permalink"></a></h3><p>Moves the current parent to <code>node</code>, making it the target for subsequent additions:</p><pre><code class="language-julia hljs">task_node = task(p, caption=&quot;Data Analysis&quot;)
+add_node!(p, task_node)  # Now task_node is the current parent</code></pre><p>After this operation, any new elements added will be children of <code>task_node</code>.</p><h3 id="pop_node!(p)"><a class="docs-heading-anchor" href="#pop_node!(p)"><code>pop_node!(p)</code></a><a id="pop_node!(p)-1"></a><a class="docs-heading-anchor-permalink" href="#pop_node!(p)" title="Permalink"></a></h3><p>Moves back up one level in the hierarchy:</p><pre><code class="language-julia hljs">pop_node!(p)  # Returns to the previous parent (whatever was current before task_node)</code></pre><p>This is crucial for properly closing nested structures.</p><h2 id="Common-Hierarchy-Patterns"><a class="docs-heading-anchor" href="#Common-Hierarchy-Patterns">Common Hierarchy Patterns</a><a id="Common-Hierarchy-Patterns-1"></a><a class="docs-heading-anchor-permalink" href="#Common-Hierarchy-Patterns" title="Permalink"></a></h2><h3 id="Basic-Nesting"><a class="docs-heading-anchor" href="#Basic-Nesting">Basic Nesting</a><a id="Basic-Nesting-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Nesting" title="Permalink"></a></h3><pre><code class="language-julia hljs">p = Prompt()
+
+# Create a task
+task_node = task(p, caption=&quot;Main Task&quot;)
+add_node!(p, task_node)
+
+# Add content to the task
+add_text(p, &quot;Perform the following analysis:&quot;)
+
+# Create a nested example set
+example_set_node = example_set(p)
+add_node!(p, example_set_node)
+
+# Add examples
+example_node = example(p)
+add_node!(p, example_node)
+add_text(p, &quot;Input: Sample data\nOutput: Expected result&quot;)
+pop_node!(p)  # Back to example_set
+
+pop_node!(p)  # Back to task
+pop_node!(p)  # Back to root</code></pre><h3 id="Multiple-Levels-of-Nesting"><a class="docs-heading-anchor" href="#Multiple-Levels-of-Nesting">Multiple Levels of Nesting</a><a id="Multiple-Levels-of-Nesting-1"></a><a class="docs-heading-anchor-permalink" href="#Multiple-Levels-of-Nesting" title="Permalink"></a></h3><pre><code class="language-julia hljs">p = Prompt()
+
+role_node = role(p, caption=&quot;System&quot;)
+add_node!(p, role_node)
+add_text(p, &quot;You are a helpful assistant.&quot;)
+
+task_node = task(p, caption=&quot;Data Processing&quot;)
+add_node!(p, task_node)
+add_text(p, &quot;Process the following data:&quot;)
+
+example_set_node = example_set(p)
+add_node!(p, example_set_node)
+
+example_node = example(p)
+add_node!(p, example_node)
+
+input_node = tag(p, &quot;input&quot;)
+add_node!(p, input_node)
+add_text(p, &quot;Raw data points: [1.2, 3.4, 5.6]&quot;)
+pop_node!(p)
+
+output_node = tag(p, &quot;output&quot;)
+add_node!(p, output_node)
+add_text(p, &quot;Processed result: [1.5, 3.7, 5.9]&quot;)
+pop_node!(p)
+
+pop_node!(p)  # Back to example_set
+pop_node!(p)  # Back to task
+pop_node!(p)  # Back to role
+pop_node!(p)  # Back to root</code></pre><h2 id="Error-Prevention"><a class="docs-heading-anchor" href="#Error-Prevention">Error Prevention</a><a id="Error-Prevention-1"></a><a class="docs-heading-anchor-permalink" href="#Error-Prevention" title="Permalink"></a></h2><h3 id="Always-Pair-Push-and-Pop"><a class="docs-heading-anchor" href="#Always-Pair-Push-and-Pop">Always Pair Push and Pop</a><a id="Always-Pair-Push-and-Pop-1"></a><a class="docs-heading-anchor-permalink" href="#Always-Pair-Push-and-Pop" title="Permalink"></a></h3><p>For every <code>add_node!</code>, there should be a corresponding <code>pop_node!</code>:</p><pre><code class="language-julia hljs"># Good practice
+task_node = task(p, caption=&quot;Task&quot;)
+add_node!(p, task_node)
+# Add content
+add_text(p, &quot;Task description&quot;)
+pop_node!(p)  # Always match push with pop
+
+# Bad practice (missing pop_node!)
+task_node = task(p, caption=&quot;Task&quot;)
+add_node!(p, task_node)
+add_text(p, &quot;Task description&quot;)
+# Missing pop_node! will cause subsequent content to be added to this task</code></pre><h3 id="Check-Stack-Depth"><a class="docs-heading-anchor" href="#Check-Stack-Depth">Check Stack Depth</a><a id="Check-Stack-Depth-1"></a><a class="docs-heading-anchor-permalink" href="#Check-Stack-Depth" title="Permalink"></a></h3><p>Before popping, you can check if there&#39;s anything to pop:</p><pre><code class="language-julia hljs">if length(p.current_parent_stack) &gt; 1  # Always keep root
+    pop_node!(p)
+end</code></pre><h2 id="Advanced-Patterns"><a class="docs-heading-anchor" href="#Advanced-Patterns">Advanced Patterns</a><a id="Advanced-Patterns-1"></a><a class="docs-heading-anchor-permalink" href="#Advanced-Patterns" title="Permalink"></a></h2><h3 id="Reusing-Nodes"><a class="docs-heading-anchor" href="#Reusing-Nodes">Reusing Nodes</a><a id="Reusing-Nodes-1"></a><a class="docs-heading-anchor-permalink" href="#Reusing-Nodes" title="Permalink"></a></h3><p>You can push the same node multiple times if needed:</p><pre><code class="language-julia hljs">p = Prompt()
+
+task_node = task(p, caption=&quot;Main Task&quot;)
+add_node!(p, task_node)
+add_text(p, &quot;First part of the task&quot;)
+
+# Do other things...
+
+add_node!(p, task_node)  # Return to the same task node
+add_text(p, &quot;Additional task instructions&quot;)
+pop_node!(p)
+pop_node!(p)</code></pre><h3 id="Conditional-Structure-Building"><a class="docs-heading-anchor" href="#Conditional-Structure-Building">Conditional Structure Building</a><a id="Conditional-Structure-Building-1"></a><a class="docs-heading-anchor-permalink" href="#Conditional-Structure-Building" title="Permalink"></a></h3><pre><code class="language-julia hljs">function add_analysis_section(p, include_examples::Bool)
+    analysis_node = task(p, caption=&quot;Data Analysis&quot;)
+    add_node!(p, analysis_node)
+    add_text(p, &quot;Analyze the provided data.&quot;)
+    
+    if include_examples
+        example_set_node = example_set(p)
+        add_node!(p, example_set_node)
+        # Add examples...
+        pop_node!(p)  # Back to analysis_node
+    end
+    
+    pop_node!(p)  # Back to root
+end
+
+p = Prompt()
+add_analysis_section(p, true)</code></pre><h2 id="Debugging-Hierarchy-Issues"><a class="docs-heading-anchor" href="#Debugging-Hierarchy-Issues">Debugging Hierarchy Issues</a><a id="Debugging-Hierarchy-Issues-1"></a><a class="docs-heading-anchor-permalink" href="#Debugging-Hierarchy-Issues" title="Permalink"></a></h2><p>If you&#39;re having trouble with unexpected nesting:</p><ol><li><p><strong>Print the current stack</strong>:</p><pre><code class="language-julia hljs">println(&quot;Current stack depth: $(length(p.current_parent_stack))&quot;)</code></pre></li><li><p><strong>Dump intermediate POML</strong>:</p><pre><code class="language-julia hljs">println(&quot;Intermediate state: $(dump_poml(p))&quot;)</code></pre></li><li><p><strong>Use try-catch blocks</strong>:</p><pre><code class="language-julia hljs">try
+    # Hierarchy operations
+catch e
+    println(&quot;Hierarchy error: $e&quot;)
+    # Reset to root if needed
+    while length(p.current_parent_stack) &gt; 1
+        pop_node!(p)
+    end
+end</code></pre></li></ol><h2 id="Best-Practices"><a class="docs-heading-anchor" href="#Best-Practices">Best Practices</a><a id="Best-Practices-1"></a><a class="docs-heading-anchor-permalink" href="#Best-Practices" title="Permalink"></a></h2><ul><li><p><strong>Always comment your push/pop pairs</strong>:</p><pre><code class="language-julia hljs">add_node!(p, task_node)  # Entering task structure
+# ... content ...
+pop_node!(p)  # Exiting task structure</code></pre></li><li><p><strong>Use indentation to reflect hierarchy</strong> in your code</p></li><li><p><strong>Consider creating helper functions</strong> for common nested structures</p></li><li><p><strong>Validate your final POML</strong> with <code>dump_poml(p)</code> to ensure proper nesting</p></li></ul><p>By mastering hierarchy management, you can create complex, well-structured prompts that effectively communicate with LLMs according to the POML standard.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../creating_prompts/">« Creating Prompts</a><a class="docs-footer-nextpage" href="../content_types/">Content Types »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Tuesday 9 September 2025 13:49">Tuesday 9 September 2025</span>. Using Julia version 1.11.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>

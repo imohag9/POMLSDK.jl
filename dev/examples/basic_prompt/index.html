@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>Basic Prompt Example · POMLSDK.jl</title><meta name="title" content="Basic Prompt Example · POMLSDK.jl"/><meta property="og:title" content="Basic Prompt Example · POMLSDK.jl"/><meta property="twitter:title" content="Basic Prompt Example · POMLSDK.jl"/><meta name="description" content="Documentation for POMLSDK.jl."/><meta property="og:description" content="Documentation for POMLSDK.jl."/><meta property="twitter:description" content="Documentation for POMLSDK.jl."/><meta property="og:url" content="https://imohag9.github.io/POMLSDK.jl/examples/basic_prompt/"/><meta property="twitter:url" content="https://imohag9.github.io/POMLSDK.jl/examples/basic_prompt/"/><link rel="canonical" href="https://imohag9.github.io/POMLSDK.jl/examples/basic_prompt/"/><script data-outdated-warner src="../../assets/warner.js"></script><link href="https://cdnjs.cloudflare.com/ajax/libs/lato-font/3.0.0/css/lato-font.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/juliamono/0.050/juliamono.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet" type="text/css"/><link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css" rel="stylesheet" type="text/css"/><script>documenterBaseURL="../.."</script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" data-main="../../assets/documenter.js"></script><script src="../../search_index.js"></script><script src="../../siteinfo.js"></script><script src="../../../versions.js"></script><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-mocha.css" data-theme-name="catppuccin-mocha"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-macchiato.css" data-theme-name="catppuccin-macchiato"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-frappe.css" data-theme-name="catppuccin-frappe"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/catppuccin-latte.css" data-theme-name="catppuccin-latte"/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-dark.css" data-theme-name="documenter-dark" data-theme-primary-dark/><link class="docs-theme-link" rel="stylesheet" type="text/css" href="../../assets/themes/documenter-light.css" data-theme-name="documenter-light" data-theme-primary/><script src="../../assets/themeswap.js"></script></head><body><div id="documenter"><nav class="docs-sidebar"><div class="docs-package-name"><span class="docs-autofit"><a href="../../">POMLSDK.jl</a></span></div><button class="docs-search-query input is-rounded is-small is-clickable my-2 mx-auto py-1 px-2" id="documenter-search-query">Search docs (Ctrl + /)</button><ul class="docs-menu"><li><a class="tocitem" href="../../">Home</a></li><li><a class="tocitem" href="../../getting_started/">Getting Started</a></li><li><span class="tocitem">Usage Guide</span><ul><li><a class="tocitem" href="../../usage/creating_prompts/">Creating Prompts</a></li><li><a class="tocitem" href="../../usage/hierarchy_management/">Hierarchy Management</a></li><li><a class="tocitem" href="../../usage/content_types/">Content Types</a></li><li><a class="tocitem" href="../../usage/tool_integration/">Hierarchy Management</a></li></ul></li><li><a class="tocitem" href="../../api/">API Reference</a></li><li><span class="tocitem">Examples</span><ul><li class="is-active"><a class="tocitem" href>Basic Prompt Example</a><ul class="internal"><li><a class="tocitem" href="#Creating-a-Basic-Prompt"><span>Creating a Basic Prompt</span></a></li><li><a class="tocitem" href="#Adding-Examples-for-Few-shot-Learning"><span>Adding Examples for Few-shot Learning</span></a></li></ul></li><li><a class="tocitem" href="../table_creation/">Table Creation Example</a></li><li><a class="tocitem" href="../tool_usage/">Tool Usage Example</a></li><li><a class="tocitem" href="../metadata/">Metadata Example</a></li></ul></li><li><a class="tocitem" href="../../poml_standard/">POML Standard</a></li></ul><div class="docs-version-selector field has-addons"><div class="control"><span class="docs-label button is-static is-size-7">Version</span></div><div class="docs-selector control is-expanded"><div class="select is-fullwidth is-size-7"><select id="documenter-version-selector"></select></div></div></div></nav><div class="docs-main"><header class="docs-navbar"><a class="docs-sidebar-button docs-navbar-link fa-solid fa-bars is-hidden-desktop" id="documenter-sidebar-button" href="#"></a><nav class="breadcrumb"><ul class="is-hidden-mobile"><li><a class="is-disabled">Examples</a></li><li class="is-active"><a href>Basic Prompt Example</a></li></ul><ul class="is-hidden-tablet"><li class="is-active"><a href>Basic Prompt Example</a></li></ul></nav><div class="docs-right"><a class="docs-navbar-link" href="https://github.com/imohag9/POMLSDK.jl" title="View the repository on GitHub"><span class="docs-icon fa-brands"></span><span class="docs-label is-hidden-touch">GitHub</span></a><a class="docs-navbar-link" href="https://github.com/imohag9/POMLSDK.jl/blob/main/docs/src/examples/basic_prompt.md" title="Edit source on GitHub"><span class="docs-icon fa-solid"></span></a><a class="docs-settings-button docs-navbar-link fa-solid fa-gear" id="documenter-settings-button" href="#" title="Settings"></a><a class="docs-article-toggle-button fa-solid fa-chevron-up" id="documenter-article-toggle-button" href="javascript:;" title="Collapse all docstrings"></a></div></header><article class="content" id="documenter-page"><h1 id="Basic-Prompt-Example"><a class="docs-heading-anchor" href="#Basic-Prompt-Example">Basic Prompt Example</a><a id="Basic-Prompt-Example-1"></a><a class="docs-heading-anchor-permalink" href="#Basic-Prompt-Example" title="Permalink"></a></h1><p>This example demonstrates how to create a simple structured prompt using POMLSDK.jl.</p><h2 id="Creating-a-Basic-Prompt"><a class="docs-heading-anchor" href="#Creating-a-Basic-Prompt">Creating a Basic Prompt</a><a id="Creating-a-Basic-Prompt-1"></a><a class="docs-heading-anchor-permalink" href="#Creating-a-Basic-Prompt" title="Permalink"></a></h2><pre><code class="language-julia hljs">using POMLSDK
+
+# Create a new prompt
+p = Prompt()
+
+# Add a system role
+role_node = role(p, caption=&quot;System&quot;)
+add_node!(p, role_node)
+add_text(p, &quot;You are a helpful AI assistant that can answer questions about geography.&quot;)
+pop_node!(p)
+
+# Add a user task
+task_node = task(p, caption=&quot;Geography Question&quot;)
+add_node!(p, task_node)
+add_text(p, &quot;What is the capital of France?&quot;)
+pop_node!(p)
+
+# Serialize to POML format
+poml_string = dump_poml(p)
+println(poml_string)</code></pre><p>This will generate the following POML XML:</p><pre><code class="language-xml hljs">&lt;poml&gt;
+  &lt;role caption=&quot;System&quot;&gt;You are a helpful AI assistant that can answer questions about geography.&lt;/role&gt;
+  &lt;task caption=&quot;Geography Question&quot;&gt;What is the capital of France?&lt;/task&gt;
+&lt;/poml&gt;</code></pre><h2 id="Adding-Examples-for-Few-shot-Learning"><a class="docs-heading-anchor" href="#Adding-Examples-for-Few-shot-Learning">Adding Examples for Few-shot Learning</a><a id="Adding-Examples-for-Few-shot-Learning-1"></a><a class="docs-heading-anchor-permalink" href="#Adding-Examples-for-Few-shot-Learning" title="Permalink"></a></h2><pre><code class="language-julia hljs">using POMLSDK
+
+p = Prompt()
+
+# System role
+role_node = role(p, caption=&quot;System&quot;)
+add_node!(p, role_node)
+add_text(p, &quot;You are a geography expert. Answer questions concisely.&quot;)
+pop_node!(p)
+
+# Task with examples
+task_node = task(p, caption=&quot;Geography Quiz&quot;)
+add_node!(p, task_node)
+add_text(p, &quot;Answer these geography questions:&quot;)
+
+# Example set
+example_set_node = example_set(p)
+add_node!(p, example_set_node)
+
+# Example 1
+example_node = example(p)
+add_node!(p, example_node)
+input_node = tag(p, &quot;input&quot;)
+add_node!(p, input_node)
+add_text(p, &quot;What is the capital of Germany?&quot;)
+pop_node!(p)
+output_node = tag(p, &quot;output&quot;)
+add_node!(p, output_node)
+add_text(p, &quot;Berlin&quot;)
+pop_node!(p)
+pop_node!(p)
+
+# Example 2
+example_node2 = example(p)
+add_node!(p, example_node2)
+input_node2 = tag(p, &quot;input&quot;)
+add_node!(p, input_node2)
+add_text(p, &quot;What is the longest river in Africa?&quot;)
+pop_node!(p)
+output_node2 = tag(p, &quot;output&quot;)
+add_node!(p, output_node2)
+add_text(p, &quot;The Nile&quot;)
+pop_node!(p)
+pop_node!(p)
+
+pop_node!(p)  # Pop example_set
+pop_node!(p)  # Pop task
+
+# Current question
+task_node2 = task(p, caption=&quot;Current Question&quot;)
+add_node!(p, task_node2)
+add_text(p, &quot;What is the highest mountain in the world?&quot;)
+pop_node!(p)
+
+# Generate POML
+poml_string = dump_poml(p)
+println(poml_string)</code></pre><p>This creates a prompt with examples that can help guide the AI&#39;s responses through few-shot learning.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../../api/">« API Reference</a><a class="docs-footer-nextpage" href="../table_creation/">Table Creation Example »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="auto">Automatic (OS)</option><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="catppuccin-latte">catppuccin-latte</option><option value="catppuccin-frappe">catppuccin-frappe</option><option value="catppuccin-macchiato">catppuccin-macchiato</option><option value="catppuccin-mocha">catppuccin-mocha</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.14.1 on <span class="colophon-date" title="Tuesday 9 September 2025 13:49">Tuesday 9 September 2025</span>. Using Julia version 1.11.6.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
