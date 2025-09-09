@@ -1,7 +1,7 @@
-# POMLSDK [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://imohag9.github.io/POMLSDK.jl/dev/) [![Build Status](https://github.com/imohag9/POMLSDK.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/imohag9/POMLSDK.jl/actions/workflows/CI.yml?query=branch%3Amain) 
+# PomlSDK [![Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://imohag9.github.io/PomlSDK.jl/dev/) [![Build Status](https://github.com/imohag9/PomlSDK.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/imohag9/PomlSDK.jl/actions/workflows/CI.yml?query=branch%3Amain) 
 
 
-**POMLSDK.jl** 
+**PomlSDK.jl** 
 This package implements the Prompt Orchestration Markup Language (POML)  standard developed by Microsoft Research : [POML specification](https://microsoft.github.io/poml/latest/).
 
 This is a Julia package for creating structured prompts for Large Language Models (LLMs) using a Prompt Object Model Language (POML)-like approach. It provides a programmatic API to build complex, hierarchical prompt structures with metadata, examples, and multi-modal content, moving beyond simple string-based prompts.
@@ -12,13 +12,13 @@ You can install it directly from GitHub:
 
 ```julia
 using Pkg
-Pkg.add(url="https://github.com/imohag9/POMLSDK.jl")
+Pkg.add(url="https://github.com/imohag9/PomlSDK.jl")
 ```
 
 
 ## Overview
 
-POMLSDK offers a fluent API to construct prompts as structured object models. This allows for better organization, reusability, and programmatic manipulation of prompts before they are serialized into a textual format suitable for LLMs.
+PomlSDK offers a fluent API to construct prompts as structured object models. This allows for better organization, reusability, and programmatic manipulation of prompts before they are serialized into a textual format suitable for LLMs.
 
 Key features include:
 *   **Hierarchical Structure:** Build prompts using a tree of nodes (roles, tasks, examples, etc.).
@@ -32,7 +32,7 @@ Key features include:
 The core workflow involves creating a `Prompt` object and then using specialized functions to add tags and content to it. The `add_node!` and `pop_node!` functions manage the current position within the prompt hierarchy.
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 # 1. Create a new Prompt
 p = Prompt()

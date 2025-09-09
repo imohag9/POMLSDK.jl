@@ -67,6 +67,6 @@ jobs:
         shell: julia --project=docs --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
-          using POMLSDK
-          DocMeta.setdocmeta!(POMLSDK, :DocTestSetup, :(using POMLSDK); recursive=true)
-          doctest(POMLSDK)
+          using PomlSDK
+          DocMeta.setdocmeta!(PomlSDK, :DocTestSetup, :(using PomlSDK); recursive=true)
+          doctest(PomlSDK)

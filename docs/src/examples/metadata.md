@@ -1,16 +1,16 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Metadata Example
 
-This example demonstrates how to add and use metadata in POMLSDK.jl prompts.
+This example demonstrates how to add and use metadata in PomlSDK.jl prompts.
 
 ## Basic Metadata Structure
 
 Metadata provides contextual information about your prompt, such as source, version, and author:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 
@@ -48,7 +48,7 @@ This will generate POML XML with a metadata section containing the specified inf
 Track the source and processing of data in your prompts:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 
@@ -87,7 +87,7 @@ println(poml_string)
 Track different versions of your prompts:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 
@@ -131,7 +131,7 @@ println(poml_string)
 When using tools, metadata can provide important context:
 
 ```julia
-using POMLSDK
+using PomlSDK
 using JSON
 
 p = Prompt()
@@ -199,7 +199,7 @@ println(poml_string)
 Here's a comprehensive example showing multiple metadata use cases:
 
 ```julia
-using POMLSDK
+using PomlSDK
 using JSON
 
 p = Prompt()

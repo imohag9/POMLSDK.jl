@@ -1,17 +1,17 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 
 
-# POMLSDK.jl
+# PomlSDK.jl
 
 
 
-**POMLSDK.jl** is a Julia package for creating structured prompts for Large Language Models (LLMs) using the [Prompt Orchestration Markup Language (POML)](https://microsoft.github.io/poml/latest/) standard developed by Microsoft.
+**PomlSDK.jl** is a Julia package for creating structured prompts for Large Language Models (LLMs) using the [Prompt Orchestration Markup Language (POML)](https://microsoft.github.io/poml/latest/) standard developed by Microsoft.
 
 ## Overview
 
-POMLSDK provides a programmatic API to build complex, hierarchical prompt structures with metadata, examples, and multi-modal content. It allows you to move beyond simple string-based prompts to a structured representation that can be serialized into the POML XML format.
+PomlSDK provides a programmatic API to build complex, hierarchical prompt structures with metadata, examples, and multi-modal content. It allows you to move beyond simple string-based prompts to a structured representation that can be serialized into the POML XML format.
 
 ### Key Features
 
@@ -25,13 +25,13 @@ POMLSDK provides a programmatic API to build complex, hierarchical prompt struct
 
 ```julia
 using Pkg
-Pkg.add("POMLSDK")
+Pkg.add("PomlSDK")
 ```
 
 ## Quick Example
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 # Create a new prompt
 p = Prompt()

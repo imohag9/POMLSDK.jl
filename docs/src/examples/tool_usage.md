@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Tool Usage Example
 
-This example demonstrates how to integrate tools with POMLSDK.jl, following the POML standard for tool-enabled prompting.
+This example demonstrates how to integrate tools with PomlSDK.jl, following the POML standard for tool-enabled prompting.
 
 ## Basic Tool Definition and Request
 
 ```julia
-using POMLSDK
+using PomlSDK
 using JSON
 
 p = Prompt()
@@ -58,7 +58,7 @@ This will generate POML XML that defines the tool and requests its use.
 Here's a more comprehensive example showing the full tool integration workflow:
 
 ```julia
-using POMLSDK
+using PomlSDK
 using JSON
 
 p = Prompt()
@@ -171,7 +171,7 @@ println(poml_string)
 This example demonstrates how to structure prompts for tool chaining:
 
 ```julia
-using POMLSDK
+using PomlSDK
 using JSON
 
 p = Prompt()

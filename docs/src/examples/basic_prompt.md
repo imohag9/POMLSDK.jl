@@ -1,14 +1,14 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Basic Prompt Example
 
-This example demonstrates how to create a simple structured prompt using POMLSDK.jl.
+This example demonstrates how to create a simple structured prompt using PomlSDK.jl.
 
 ## Creating a Basic Prompt
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 # Create a new prompt
 p = Prompt()
@@ -42,7 +42,7 @@ This will generate the following POML XML:
 ## Adding Examples for Few-shot Learning
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 

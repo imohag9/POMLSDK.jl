@@ -1,13 +1,13 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Hierarchy Management
 
-This guide explains how to manage the hierarchical structure of prompts in POMLSDK.jl.
+This guide explains how to manage the hierarchical structure of prompts in PomlSDK.jl.
 
 ## Understanding the Stack-Based Approach
 
-POMLSDK uses a stack to manage the current position within the prompt hierarchy. This approach is essential for creating nested structures that follow the POML standard.
+PomlSDK uses a stack to manage the current position within the prompt hierarchy. This approach is essential for creating nested structures that follow the POML standard.
 
 The key components of hierarchy management are:
 

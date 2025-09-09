@@ -1,9 +1,9 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Content Types
 
-This guide explains how to add different types of content to your prompts using POMLSDK.jl.
+This guide explains how to add different types of content to your prompts using PomlSDK.jl.
 
 ## Text Content
 
@@ -30,7 +30,7 @@ pop_node!(p)
 
 ## Tables
 
-POMLSDK supports creating tables with the `table()` function:
+PomlSDK supports creating tables with the `table()` function:
 
 ```julia
 p = Prompt()
@@ -212,7 +212,7 @@ poml_string = dump_poml(p)
 
 ### Handling Complex Data Types
 
-POMLSDK automatically converts complex data types to appropriate string representations:
+PomlSDK automatically converts complex data types to appropriate string representations:
 
 ```julia
 # Dictionary data

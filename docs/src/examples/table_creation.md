@@ -1,16 +1,16 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Table Creation Example
 
-This example demonstrates how to create and work with tables in POMLSDK.jl.
+This example demonstrates how to create and work with tables in PomlSDK.jl.
 
 ## Basic Table Creation
 
 Tables can be created from 2D data arrays:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 
@@ -37,7 +37,7 @@ This will create a markdown-formatted table embedded in the POML structure.
 Add context to your tables with captions:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 
@@ -70,7 +70,7 @@ println(poml_string)
 Here's a comprehensive example showing multiple table techniques:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 

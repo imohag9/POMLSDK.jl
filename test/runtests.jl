@@ -1,4 +1,4 @@
-using POMLSDK
+using PomlSDK
 using Test
 using XML
 using Aqua
@@ -20,7 +20,7 @@ end
 
 @testset "Project meta quality checks" begin
     # Not checking compat section for test-only dependencies
-    Aqua.test_all(POMLSDK;
+    Aqua.test_all(PomlSDK;
                   ambiguities=true,
                   project_extras=true,
                   deps_compat=true,
@@ -30,7 +30,7 @@ end
     )
 end
 
-@testset "POMLSDK.jl" begin
+@testset "PomlSDK.jl" begin
 
     # Test 1: Basic Prompt Creation
     @testset "Prompt Initialization" begin
@@ -52,7 +52,7 @@ end
         @test role_node.tag == "Role"
         @test role_node["caption"] == "System"
 
-        meta_tag_node = POMLSDK.tag(p,"source"; value="user_input")
+        meta_tag_node = PomlSDK.tag(p,"source"; value="user_input")
         @test meta_tag_node.tag == "source"
         @test meta_tag_node["value"] == "user_input"
 
@@ -89,36 +89,36 @@ end
     @testset "Data Type Handling (_prepare_attrs)" begin
         p = Prompt()
 
-        node1 = POMLSDK.tag(p, "test_tag", str_attr="hello")
+        node1 = PomlSDK.tag(p, "test_tag", str_attr="hello")
         @test node1["str_attr"] == "hello"
 
-        node2 = POMLSDK.tag(p, "test_tag", int_attr=42)
+        node2 = PomlSDK.tag(p, "test_tag", int_attr=42)
         @test node2["int_attr"] == "42"
 
-        node3 = POMLSDK.tag(p, "test_tag", float_attr=3.14159)
+        node3 = PomlSDK.tag(p, "test_tag", float_attr=3.14159)
         @test node3["float_attr"] == "3.14159"
 
-        node4 = POMLSDK.tag(p, "test_tag", bool_attr=true)
+        node4 = PomlSDK.tag(p, "test_tag", bool_attr=true)
         @test node4["bool_attr"] == "true"
 
-        node5 = POMLSDK.tag(p, "test_tag", bool_attr=false)
+        node5 = PomlSDK.tag(p, "test_tag", bool_attr=false)
         @test node5["bool_attr"] == "false"
 
         complex_data = Dict("key1" => "value1", "nested" => [1, 2, 3])
-        node6 = POMLSDK.tag(p, "test_tag", data_attr=complex_data)
+        node6 = PomlSDK.tag(p, "test_tag", data_attr=complex_data)
         attr_val = node6["data_attr"]
         @test isa(attr_val, String)
         # parsed_data = JSON.parse(attr_val)
         # @test parsed_data == complex_data
 
         array_data = [1, "two", 3.0]
-        node7 = POMLSDK.tag(p, "test_tag", array_attr=array_data)
+        node7 = PomlSDK.tag(p, "test_tag", array_attr=array_data)
         attr_val7 = node7["array_attr"]
         @test isa(attr_val7, String)
 
 
         bytes_data = UInt8[0x48, 0x65, 0x6c, 0x6c, 0x6f]
-        node8 = POMLSDK.tag(p, "test_tag", bytes_attr=bytes_data)
+        node8 = PomlSDK.tag(p, "test_tag", bytes_attr=bytes_data)
         attr_val8 = node8["bytes_attr"]
         @test isa(attr_val8, String)
     end
@@ -262,12 +262,12 @@ end
         example_node = example(p)
         add_node!(p, example_node)
         
-        input_node = POMLSDK.tag(p, "input")
+        input_node = PomlSDK.tag(p, "input")
         add_node!(p, input_node)
         add_text(p, "Topic: Benefits of Regular Exercise")
         pop_node!(p)
         
-        output_node = POMLSDK.tag(p, "output")
+        output_node = PomlSDK.tag(p, "output")
         add_node!(p, output_node)
         add_text(p, "Title: The Life-Changing Power of Daily Movement\n\n[Blog content here]")
         pop_node!(p)
@@ -376,8 +376,8 @@ end
         # Add metadata
         meta_node = meta(p)
         add_node!(p, meta_node)
-        POMLSDK.tag(p, "author"; value="Math Team")
-        POMLSDK.tag(p, "tool_config"; value="enabled")
+        PomlSDK.tag(p, "author"; value="Math Team")
+        PomlSDK.tag(p, "tool_config"; value="enabled")
         pop_node!(p)
         
         # Define calculator tool
@@ -435,17 +435,17 @@ end
         p = Prompt()
         
         # Create structure matching 301_generate_poml.poml
-        let_node1 = POMLSDK.tag(p, "let", src="105_write_blog_post.poml", name="blog_post")
-        let_node2 = POMLSDK.tag(p, "let", src="106_research.poml", name="research")
-        let_node3 = POMLSDK.tag(p, "let", src="202_arc_agi.poml", name="arc_agi")
-        let_node4 = POMLSDK.tag(p, "let", src="107_read_report_pdf.poml", name="read_report")
+        let_node1 = PomlSDK.tag(p, "let", src="105_write_blog_post.poml", name="blog_post")
+        let_node2 = PomlSDK.tag(p, "let", src="106_research.poml", name="research")
+        let_node3 = PomlSDK.tag(p, "let", src="202_arc_agi.poml", name="arc_agi")
+        let_node4 = PomlSDK.tag(p, "let", src="107_read_report_pdf.poml", name="read_report")
         
         # Create paragraph container
         p_container_node = paragraph(p)
         add_node!(p, p_container_node)
         
         # Blog post function
-        span_blog_node = POMLSDK.tag(p, "span", whiteSpace="trim")
+        span_blog_node = PomlSDK.tag(p, "span", whiteSpace="trim")
         add_node!(p, span_blog_node)
         add_text(p, "function blog_post() {return \"\"\"")
         
@@ -458,7 +458,7 @@ end
         pop_node!(p)  # Close span
         
         # Research function
-        span_research_node = POMLSDK.tag(p, "span", whiteSpace="trim")
+        span_research_node = PomlSDK.tag(p, "span", whiteSpace="trim")
         add_node!(p, span_research_node)
         add_text(p, "function research() {return \"\"\"")
         
@@ -488,8 +488,8 @@ end
         # Basic metadata
         meta_node = meta(p)
         add_node!(p, meta_node)
-        POMLSDK.tag(p,"author"; value="Data Team")
-        POMLSDK.tag(p,"project"; value="Q4_Sales_Analysis")
+        PomlSDK.tag(p,"author"; value="Data Team")
+        PomlSDK.tag(p,"project"; value="Q4_Sales_Analysis")
         meta_attribute(p;key="version", value="2.3")
         pop_node!(p)
         
@@ -509,9 +509,9 @@ end
         p_version = Prompt()
         meta_node = meta(p_version)
         add_node!(p_version, meta_node)
-        POMLSDK.tag(p_version, "prompt_id"; value="sales_analysis_v3")
-        POMLSDK.tag(p_version, "version"; value="3.1")
-        POMLSDK.tag(p_version, "previous_version"; value="sales_analysis_v2")
+        PomlSDK.tag(p_version, "prompt_id"; value="sales_analysis_v3")
+        PomlSDK.tag(p_version, "version"; value="3.1")
+        PomlSDK.tag(p_version, "previous_version"; value="sales_analysis_v2")
         pop_node!(p_version)
         
         poml_version = dump_poml(p_version)
@@ -633,7 +633,7 @@ end
         
         # Test adding metadata with invalid types
         @test_throws MethodError begin
-            meta= POMLSDK.tag(p, 123; value="value")  
+            meta= PomlSDK.tag(p, 123; value="value")  
         end
     end
 end

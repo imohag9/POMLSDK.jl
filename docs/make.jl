@@ -1,14 +1,14 @@
-using POMLSDK
+using PomlSDK
 using Documenter
 
-DocMeta.setdocmeta!(POMLSDK, :DocTestSetup, :(using POMLSDK); recursive=true)
+DocMeta.setdocmeta!(PomlSDK, :DocTestSetup, :(using PomlSDK); recursive=true)
 
 makedocs(;
-    modules=[POMLSDK],
+    modules=[PomlSDK],
     authors="imohag9 <souidi.hamza90@gmail.com> and contributors",
-    sitename="POMLSDK.jl",
+    sitename="PomlSDK.jl",
     format=Documenter.HTML(;
-        canonical="https://imohag9.github.io/POMLSDK.jl",
+        canonical="https://imohag9.github.io/PomlSDK.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -33,6 +33,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/imohag9/POMLSDK.jl",
+    repo="github.com/imohag9/PomlSDK.jl",
     devbranch="main",
 )

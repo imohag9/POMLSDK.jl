@@ -1,9 +1,9 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
-# Getting Started with POMLSDK.jl
+# Getting Started with PomlSDK.jl
 
-Welcome to the POMLSDK.jl documentation! This guide will help you get started with creating structured prompts for LLMs using the POML standard.
+Welcome to the PomlSDK.jl documentation! This guide will help you get started with creating structured prompts for LLMs using the POML standard.
 
 ## Understanding POML
 
@@ -11,7 +11,7 @@ Welcome to the POMLSDK.jl documentation! This guide will help you get started wi
 
 ## Basic Concepts
 
-POMLSDK.jl implements the following key concepts from the POML standard:
+PomlSDK.jl implements the following key concepts from the POML standard:
 
 - **Prompt**: The root object that contains all prompt elements
 - **Hierarchy**: A tree structure where elements can be nested within each other
@@ -24,7 +24,7 @@ POMLSDK.jl implements the following key concepts from the POML standard:
 Let's create a simple prompt that instructs an AI assistant:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 # 1. Create a new Prompt object
 p = Prompt()
@@ -57,7 +57,7 @@ This will produce XML similar to:
 
 ## Understanding the Hierarchy
 
-POMLSDK uses a stack-based approach to manage the prompt hierarchy:
+PomlSDK uses a stack-based approach to manage the prompt hierarchy:
 
 - `add_node!(p, node)` makes `node` the current parent for subsequent additions
 - `pop_node!(p)` moves back up one level in the hierarchy

@@ -1,13 +1,13 @@
 ```@meta
-CurrentModule = POMLSDK
+CurrentModule = PomlSDK
 ```
 # Creating Prompts
 
-This guide explains how to create structured prompts using POMLSDK.jl.
+This guide explains how to create structured prompts using PomlSDK.jl.
 
 ## Prompt Structure
 
-In POMLSDK, prompts are built as hierarchical structures. The basic workflow involves:
+In PomlSDK, prompts are built as hierarchical structures. The basic workflow involves:
 
 1. Creating a `Prompt` object
 2. Adding semantic tags (role, task, example, etc.)
@@ -27,7 +27,7 @@ This creates an empty prompt structure with a root `<poml>` element.
 
 ## Adding Semantic Tags
 
-POMLSDK provides several functions for adding semantic tags that correspond to the POML standard:
+PomlSDK provides several functions for adding semantic tags that correspond to the POML standard:
 
 ```julia
 # Add a role (typically for system instructions)
@@ -99,7 +99,7 @@ Text content is accumulated within the current node, so the above would result i
 Here's a complete example creating a structured prompt:
 
 ```julia
-using POMLSDK
+using PomlSDK
 
 p = Prompt()
 

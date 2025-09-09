@@ -1,18 +1,18 @@
 # POML Standard Implementation
 
-POMLSDK.jl implements the [Prompt Orchestration Markup Language (POML)](https://microsoft.github.io/poml/latest/) standard developed by Microsoft. This documentation explains how POMLSDK maps to the official POML specification.
+PomlSDK.jl implements the [Prompt Orchestration Markup Language (POML)](https://microsoft.github.io/poml/latest/) standard developed by Microsoft. This documentation explains how PomlSDK maps to the official POML specification.
 
 ## What is POML?
 
 POML (Prompt Orchestration Markup Language) is a standard for creating structured prompts for Large Language Models (LLMs). It provides a way to define complex prompt structures with metadata, examples, and multi-modal content, moving beyond simple string-based prompts.
 
-## POMLSDK Implementation
+## PomlSDK Implementation
 
-POMLSDK.jl provides a programmatic Julia API to build prompts according to the POML standard. The package maps directly to the POML XML structure but provides a more developer-friendly interface.
+PomlSDK.jl provides a programmatic Julia API to build prompts according to the POML standard. The package maps directly to the POML XML structure but provides a more developer-friendly interface.
 
 ### Core Elements Mapping
 
-| POML XML Element | POMLSDK.jl Function | Description |
+| POML XML Element | PomlSDK.jl Function | Description |
 |------------------|------------------------|-------------|
 | `<role>` | `role()` | Defines a role in the conversation (e.g., System, Assistant) |
 | `<task>` | `task()` | Specifies the main task for the AI to perform |
@@ -42,15 +42,15 @@ The POML standard specifies that a document should have the following structure:
 </poml>
 ```
 
-POMLSDK.jl follows this structure exactly when serializing with `dump_poml()`.
+PomlSDK.jl follows this structure exactly when serializing with `dump_poml()`.
 
 ### Advanced Features
 
-POMLSDK implements several advanced POML features:
+PomlSDK implements several advanced POML features:
 
 #### Tool Integration
 
-POML supports tool definitions and requests, which POMLSDK implements through:
+POML supports tool definitions and requests, which PomlSDK implements through:
 
 ```julia
 # Define a tool
@@ -62,7 +62,7 @@ tool_req = tool_request(p, name="calculator", parameters=Dict("operation" => "ad
 
 #### Multi-modal Content
 
-POMLSDK supports embedding images and documents:
+PomlSDK supports embedding images and documents:
 
 ```julia
 # Add an image
@@ -74,7 +74,7 @@ doc_node = document(p, src="data.pdf", parser="pdf")
 
 #### Metadata
 
-POMLSDK provides comprehensive metadata support:
+PomlSDK provides comprehensive metadata support:
 
 ```julia
 # Create metadata section
@@ -90,9 +90,9 @@ meta_attribute(p, name="version", value="1.0")
 
 ## Differences from Official Implementation
 
-While POMLSDK closely follows the POML standard, there are some implementation differences due to Julia's language characteristics:
+While PomlSDK closely follows the POML standard, there are some implementation differences due to Julia's language characteristics:
 
-1. **Hierarchy Management**: POMLSDK uses `add_node!`/`pop_node!` instead of context managers (like Python's `with` statements)
+1. **Hierarchy Management**: PomlSDK uses `add_node!`/`pop_node!` instead of context managers (like Python's `with` statements)
 2. **Attribute Handling**: Attributes are handled through keyword arguments rather than separate method calls
 3. **Data Type Conversion**: Automatic conversion of Julia types to appropriate string representations for XML
 

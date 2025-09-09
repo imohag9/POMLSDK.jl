@@ -1,4 +1,4 @@
-module POMLSDK
+module PomlSDK
 
 using XML
 using JSON 
